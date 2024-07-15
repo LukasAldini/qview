@@ -1,4 +1,5 @@
 test_that("qview works correctly", {
+  library(dplyr)
   df <- data.frame(a = rnorm(100), b = rnorm(100))
   result <- qview(df)
   expect_true("summary" %in% names(result))

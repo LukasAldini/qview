@@ -1,4 +1,5 @@
 test_that("summarize_data works correctly", {
+  library(dplyr)
   df <- data.frame(a = rnorm(100), b = rnorm(100))
   summary_df <- summarize_data(df)
   expect_true(ncol(summary_df) == 10) # 5 stats * 2 columns
