@@ -31,14 +31,16 @@ summarize_data <- function(df) {
 #' plot_distribution(df)
 #' @export
 plot_distribution <- function(df) {
+  # Laden der ggplot2 Bibliothek
   library(ggplot2)
+
   numeric_cols <- df %>% dplyr::select(where(is.numeric))
   plots <- lapply(names(numeric_cols), function(col) {
-    p1 <- ggplot(df, aes_string(col)) +
+    p1 <- ggplot(df, aes_string(x = col)) +
       geom_histogram(binwidth = 30) +
       ggtitle(paste("Histogram of", col))
 
-    p2 <- ggplot(df, aes_string("", col)) +
+    p2 <- ggplot(df, aes(x = "", y = .data[[col]])) +
       geom_boxplot() +
       ggtitle(paste("Boxplot of", col))
 
@@ -47,6 +49,7 @@ plot_distribution <- function(df) {
   names(plots) <- names(numeric_cols)
   return(plots)
 }
+
 
 #' Quick View of Data
 #'
