@@ -21,11 +21,11 @@ summarize_data <- function(df) {
   return(summary_df)
 }
 
-##' Plot Distribution
+##' Plot the Distribution
 ##'
-##' This function creates histograms and boxplots for all numeric columns in a data frame.
-##' @param df A data frame.
-##' @return A list of ggplot objects.
+##' This function creates histograms and boxplots for all numeric columns in the data frame
+##' @param df The dataframe
+##' @return A list of ggplot objects from the dataframe
 ##' @examples
 ##' df <- data.frame(a = rnorm(100), b = rnorm(100))
 ##' plot_distribution(df)
@@ -52,7 +52,7 @@ plot_distribution <- function(df) {
 ##'
 ##' This function provides a summary and distribution plots for a data frame.
 ##' @param df A data frame.
-##' @return A list containing summary statistics and distribution plots.
+##' @return A list containing summary statistics and distribution plots of the data frame
 ##' @examples
 ##' df <- data.frame(a = rnorm(100), b = rnorm(100))
 ##' qview(df)
