@@ -11,12 +11,12 @@ summarize_data <- function(df) {
   library(dplyr)
   summary_df <- df %>%
     summarise(across(where(is.numeric), list(
-      mean = mean,
-      median = median,
-      min = min,
-      max = max,
-      sd = sd
-    ), na.rm = TRUE))
+      mean = ~mean(.x, na.rm = TRUE),
+      median = ~median(.x, na.rm = TRUE),
+      min = ~min(.x, na.rm = TRUE),
+      max = ~max(.x, na.rm = TRUE),
+      sd = ~sd(.x, na.rm = TRUE)
+    )))
 
   return(summary_df)
 }

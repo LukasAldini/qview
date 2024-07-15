@@ -10,7 +10,7 @@ summarize_data(df)
 \item{df}{The data frame}
 }
 \value{
-The data frame with summarys for numeric columns
+The data frame with summaries for numeric columns
 }
 \description{
 This function gives a basic summary for numeric columns in a data frame
