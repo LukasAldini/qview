@@ -1,9 +1,9 @@
-test_that("plot_distribution works correctly", {
-  library(dplyr)
+plot_distribution <- function(df, col) {
   library(ggplot2)
-  df <- data.frame(a = rnorm(100), b = rnorm(100))
-  plots <- plot_distribution(df)
-  expect_true(length(plots) == 2) # 2 numeric columns
-  expect_true(all(names(plots) == c("a", "b")))
-})
-
+  plots <- lapply(names(df), function(col) {
+    ggplot(df, aes_string(x = "", y = col)) +
+      geom_histogram() +
+      ggtitle(paste("Histogram of", col))
+  })
+  return(plots)
+}

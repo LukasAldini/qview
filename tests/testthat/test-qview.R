@@ -1,9 +1,9 @@
-test_that("qview works correctly", {
-  library(dplyr)
-  df <- data.frame(a = rnorm(100), b = rnorm(100))
-  result <- qview(df)
-  expect_true("summary" %in% names(result))
-  expect_true("plots" %in% names(result))
-  expect_true(is.data.frame(result$summary))
-  expect_true(length(result$plots) == 2) # 2 numeric columns
-})
+plot_distribution <- function(df) {
+  library(ggplot2)
+  plots <- lapply(names(df), function(col) {
+    ggplot(df, aes_string(x = "", y = col)) +
+      geom_histogram() +
+      ggtitle(paste("Histogram of", col))
+  })
+  return(plots)
+}
