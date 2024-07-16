@@ -32,23 +32,25 @@ summarize_data <- function(df) {
 #' @export
 plot_distribution <- function(df) {
   library(ggplot2)
+  library(dplyr)
 
-  numeric_cols <- df %>% dplyr::select(where(is.numeric))
+  numeric_cols <- df %>% select(where(is.numeric))
   plots <- lapply(names(numeric_cols), function(col) {
     p1 <- ggplot(df, aes_string(x = col)) +
       geom_histogram(binwidth = 30) +
       ggtitle(paste("Histogram of", col))
 
-    p2 <- ggplot(df, aes_string(x = "", y = col)) +
+    p2 <- ggplot(df, aes_string(x = paste0("'", col, "'"), y = col)) +
       geom_boxplot() +
+      xlab(col) +
       ggtitle(paste("Boxplot of", col))
 
     list(histogram = p1, boxplot = p2)
   })
+
   names(plots) <- names(numeric_cols)
   return(plots)
 }
-
 
 #' Quick View of Data
 #'
