@@ -36,22 +36,35 @@ plot_distribution <- function(df) {
 
   numeric_cols <- df %>% select(where(is.numeric))
   plots <- lapply(names(numeric_cols), function(col) {
-    p1 <- ggplot(df, aes_string(x = col)) +
-      geom_histogram(binwidth = 30, fill = "skyblue", color = "black") +
+    p1 <- ggplot(df, aes(x = !!sym(col))) +
+      geom_histogram(binwidth = 30, fill = "red", color = "black") +
       ggtitle(paste("Histogram of", col)) +
       theme_minimal()
 
-    p2 <- ggplot(df, aes_string(x = "factor(1)", y = col)) +
-      geom_boxplot(fill = "lightgreen", color = "black") +
+    p2 <- ggplot(df, aes(y = !!sym(col))) +
+      geom_boxplot(fill = "lightgrey", color = "black") +
       xlab(col) +
       ggtitle(paste("Boxplot of", col)) +
-      theme_minimal() +
-      theme(axis.text.x = element_blank(),
-            axis.ticks.x = element_blank())
+      theme_minimal()
 
     list(histogram = p1, boxplot = p2)
   })
 
   names(plots) <- names(numeric_cols)
   return(plots)
+}
+
+#' Quick View of Data
+#'
+#' This function provides a summary and distribution plots for a data frame.
+#' @param df A data frame.
+#' @return A list containing summary statistics and distribution plots of the data frame
+#' @examples
+#' df <- data.frame(a = rnorm(100), b = rnorm(100))
+#' qview(df)
+#' @export
+qview <- function(df) {
+  summary_df <- summarize_data(df)
+  plots <- plot_distribution(df)
+  return(list(summary = summary_df, plots = plots))
 }
