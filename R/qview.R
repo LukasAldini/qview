@@ -55,4 +55,3 @@ plot_distribution <- function(df) {
   names(plots) <- names(numeric_cols)
   return(plots)
 }
-
