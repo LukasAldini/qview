@@ -66,4 +66,3 @@ qview <- function(df) {
   plots <- plot_distribution(df)
   return(list(summary = summary_df, plots = plots))
 }
-
