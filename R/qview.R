@@ -60,7 +60,7 @@ plot_distribution <- function(df) {
 
 #' Quick View of Data
 #'
-#' This function provides a summary and distribution plots for a data frame.
+#' This function provides a summary and distribution plots for a data frame
 #' @param df A data frame.
 #' @return A list containing summary statistics and distribution plots of the data frame
 #' @examples
