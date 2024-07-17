@@ -36,8 +36,12 @@ plot_distribution <- function(df) {
 
   numeric_cols <- df %>% select(where(is.numeric))
   plots <- lapply(names(numeric_cols), function(col) {
+    # Use a dynamic binwidth calculation or a fixed number of bins
+    num_bins <- 30
+    binwidth <- (max(df[[col]], na.rm = TRUE) - min(df[[col]], na.rm = TRUE)) / num_bins
+
     p1 <- ggplot(df, aes(x = !!sym(col))) +
-      geom_histogram(binwidth = 30, fill = "red", color = "black") +
+      geom_histogram(binwidth = binwidth, fill = "red", color = "black") +
       ggtitle(paste("Histogram of", col)) +
       theme_minimal()
 
