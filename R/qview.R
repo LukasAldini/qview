@@ -23,7 +23,7 @@ summarize_data <- function(df) {
 
 #' Plot the Distribution
 #'
-#' This function creates histograms and boxplots for all numeric columns in the data frame
+#' This function creates histograms and boxplots for all numeric columns a data frame
 #' @param df The dataframe
 #' @return A list of ggplot objects from the dataframe
 #' @examples
