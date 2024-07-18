@@ -14,6 +14,7 @@ It includes the following functions:
 - `qview`: Provides both summary statistics and distribution plots for a data frame.
 
 
+
 ## Installation
 
 To install the `qview` package from GitHub, use the following commands:
@@ -22,6 +23,7 @@ To install the `qview` package from GitHub, use the following commands:
 install.packages("remotes")                     ## install remotes to get git content
 remotes::install_github("LukasAldini/qview")    ## get the package via github
 ´´´´ 
+
 
 
 ## Use of the package & some examples
@@ -35,3 +37,7 @@ result <- qview(mtcars)   ## define an object and use qview on the dataframe
 print(result$summar)      ## show the summary-statistics of the datafames numeric columns (mean,median, min & max and sd)
 print(result)             ## get a histogramm and a boxplot of all numeric columns of the given dataset
 ´´´
+
+
+## Written by: Lukas Aldini
+## Contact: lukasladini@gmail.com 
