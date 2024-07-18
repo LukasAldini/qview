@@ -13,7 +13,7 @@ plot_distribution(df)
 A list of ggplot objects from the dataframe
 }
 \description{
-This function creates histograms and boxplots for all numeric columns in the data frame
+This function creates histograms and boxplots for all numeric columns a data frame
 }
 \examples{
 df <- data.frame(a = rnorm(100), b = rnorm(100))

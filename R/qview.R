@@ -36,7 +36,6 @@ plot_distribution <- function(df) {
 
   numeric_cols <- df %>% select(where(is.numeric))
   plots <- lapply(names(numeric_cols), function(col) {
-    # Use a dynamic binwidth calculation or a fixed number of bins
     num_bins <- 30
     binwidth <- (max(df[[col]], na.rm = TRUE) - min(df[[col]], na.rm = TRUE)) / num_bins
 

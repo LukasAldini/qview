@@ -13,7 +13,7 @@ qview(df)
 A list containing summary statistics and distribution plots of the data frame
 }
 \description{
-This function provides a summary and distribution plots for a data frame.
+This function provides a summary and distribution plots for a data frame
 }
 \examples{
 df <- data.frame(a = rnorm(100), b = rnorm(100))
